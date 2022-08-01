@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { memo } from 'react';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -8,7 +9,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-export default function ButtonAppBar() {
+function ButtonAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -25,9 +26,12 @@ export default function ButtonAppBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             News
           </Typography>
+          <Button color="inherit">Sign Up</Button>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </Box>
   );
 }
+
+export default memo(ButtonAppBar);

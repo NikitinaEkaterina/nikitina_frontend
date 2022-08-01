@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { string } from 'prop-types';
+import React, { memo } from 'react';
+import { arrayOf, string } from 'prop-types';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -7,7 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-export default function ActionAreaCard({
+function NewsCard({
   title,
   author,
   text,
@@ -41,10 +41,16 @@ export default function ActionAreaCard({
   );
 }
 
-ActionAreaCard.propTypes = {
+NewsCard.propTypes = {
   title: string.isRequired,
   author: string.isRequired,
   text: string.isRequired,
-  image: string.isRequired,
-  tag: string.isRequired,
+  image: string,
+  tag: arrayOf(string).isRequired,
 };
+
+NewsCard.defaultProps = {
+  image: null,
+};
+
+export default memo(NewsCard);

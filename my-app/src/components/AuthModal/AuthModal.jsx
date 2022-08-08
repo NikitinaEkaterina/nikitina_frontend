@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { memo } from 'react';
+import React, { memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Box from '@mui/material/Box';
@@ -21,7 +20,7 @@ const style = {
   p: 4,
 };
 
-function BasicModal() {
+function AuthModal() {
   const dispatch = useDispatch();
   const isModalOpen = useSelector((state) => state.auth.isModalOpen);
   const modalType = useSelector((state) => state.auth.modalType);
@@ -50,4 +49,4 @@ function BasicModal() {
   );
 }
 
-export default memo(BasicModal);
+export default memo(AuthModal);

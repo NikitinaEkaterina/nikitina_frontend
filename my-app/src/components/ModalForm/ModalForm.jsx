@@ -8,7 +8,7 @@ import { registrationRequested, loginRequested } from '../../redux/actions';
 
 import './ModalForm.css';
 
-function SignupForm() {
+function ModalForm() {
   const error = useSelector((state) => state.auth.authError);
   const modalType = useSelector((state) => state.auth.modalType);
   const isAuth = modalType === 'signup';
@@ -46,6 +46,8 @@ function SignupForm() {
           type="text"
           onChange={formik.handleChange}
           value={formik.values.username}
+          error={formik.touched.username && Boolean(formik.errors.username)}
+          helperText={formik.touched.username && formik.errors.username}
         />
       </>
       )}
@@ -58,6 +60,8 @@ function SignupForm() {
         type="email"
         onChange={formik.handleChange}
         value={formik.values.email}
+        error={formik.touched.email && Boolean(formik.errors.email)}
+        helperText={formik.touched.email && formik.errors.email}
       />
       <br />
       <p htmlFor="email">Your Password</p>
@@ -77,4 +81,4 @@ function SignupForm() {
   );
 }
 
-export default memo(SignupForm);
+export default memo(ModalForm);

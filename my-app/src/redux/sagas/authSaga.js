@@ -17,4 +17,3 @@ function* registrationSaga({ payload }) {
 export default function* recordSaga() {
   yield takeEvery(actionTypes.REGISTRATION_REQUESTED, registrationSaga);
 }
-Implementation of authorization

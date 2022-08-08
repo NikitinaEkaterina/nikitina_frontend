@@ -43,3 +43,7 @@ export const loginSuccessed = (payload) => ({
   type: actionTypes.LOGIN_SUCCESSED,
   payload,
 });
+
+export const logOut = () => ({
+  type: actionTypes.LOGOUT,
+});

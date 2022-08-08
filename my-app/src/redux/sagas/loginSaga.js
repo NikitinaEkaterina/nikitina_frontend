@@ -1,4 +1,5 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
+
 import * as actionTypes from '../constants';
 import api from '../../api/api';
 import { loginSuccessed, registrationFailed } from '../actions';
@@ -6,7 +7,6 @@ import { loginSuccessed, registrationFailed } from '../actions';
 function* loginSaga({ payload }) {
   try {
     const { data } = yield call(api.post, '/token/', payload);
-    console.log(data.access);
     window.localStorage.setItem('token', data.access);
     yield put(loginSuccessed(data));
   } catch (error) {

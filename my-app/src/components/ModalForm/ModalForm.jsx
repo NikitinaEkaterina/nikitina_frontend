@@ -1,20 +1,15 @@
-/* eslint-disable no-undef */
-import React from 'react';
+import React, { memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
+
+import TextField from '@mui/material/TextField';
 
 import { registrationRequested, loginRequested } from '../../redux/actions';
 
-// const SignupSchema = Yup.object().shape({
-//   username: Yup.string()
-//     .required('Required'),
-//   email: Yup.string().email('Invalid email')
-//     .required('Required'),
-//   password: Yup.string().min(6, 'Too Short!').required('Required'),
-// });
+import './ModalForm.css';
 
-export default function SignupForm() {
+function SignupForm() {
+  const error = useSelector((state) => state.auth.authError);
   const modalType = useSelector((state) => state.auth.modalType);
   const isAuth = modalType === 'signup';
   const dispatch = useDispatch();
@@ -34,13 +29,18 @@ export default function SignupForm() {
     },
     onSubmit: (values) => onClick(values),
   });
+
   return (
     <form onSubmit={formik.handleSubmit}>
+      <div className="authError">
+        {error}
+      </div>
       {isAuth
       && (
       <>
         <p htmlFor="username">Your Name</p>
-        <input
+        <TextField
+          required
           id="username"
           name="username"
           type="text"
@@ -51,7 +51,8 @@ export default function SignupForm() {
       )}
       <br />
       <p htmlFor="email">Your Email</p>
-      <input
+      <TextField
+        required
         id="email"
         name="email"
         type="email"
@@ -60,7 +61,8 @@ export default function SignupForm() {
       />
       <br />
       <p htmlFor="email">Your Password</p>
-      <input
+      <TextField
+        required
         id="password"
         name="password"
         type="password"
@@ -74,3 +76,5 @@ export default function SignupForm() {
     </form>
   );
 }
+
+export default memo(SignupForm);

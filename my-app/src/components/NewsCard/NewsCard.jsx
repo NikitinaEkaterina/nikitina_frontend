@@ -7,6 +7,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
+import './NewsCard.css';
+
 function NewsCard({
   title,
   author,

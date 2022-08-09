@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { memo } from 'react';
+import React, { memo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -9,7 +9,24 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
+import { changeModalState, logOut } from '../../redux/actions';
+
+import './Header.css';
+
 function Header() {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const handleLogOut = () => {
+    localStorage.removeItem('token');
+    dispatch(logOut());
+  };
+  const openModal = (type) => {
+    dispatch(changeModalState({
+      status: true,
+      type,
+    }));
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -26,8 +43,14 @@ function Header() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             News
           </Typography>
-          <Button color="inherit">Sign Up</Button>
-          <Button color="inherit">Login</Button>
+          {isLoggedIn
+            ? <Button color="inherit" onClick={handleLogOut}>LogOut</Button>
+            : (
+              <>
+                <Button color="inherit" onClick={() => openModal('signup')}>Sign Up</Button>
+                <Button color="inherit" onClick={() => openModal('login')}>Login</Button>
+              </>
+            )}
         </Toolbar>
       </AppBar>
     </Box>

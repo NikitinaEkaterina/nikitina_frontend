@@ -1,7 +1,7 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 
-import * as actionTypes from '../constants';
 import api from '../../api/api';
+import * as actionTypes from '../constants';
 import { registrationSuccessed, registrationFailed, loginRequested } from '../actions';
 
 function* registrationSaga({ payload }) {

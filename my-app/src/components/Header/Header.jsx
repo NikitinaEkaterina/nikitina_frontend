@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -14,12 +15,19 @@ import { changeModalState, logOut } from '../../redux/actions';
 import './Header.css';
 
 function Header() {
-  const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/');
+  };
+
   const handleLogOut = () => {
     localStorage.removeItem('token');
     dispatch(logOut());
   };
+
   const openModal = (type) => {
     dispatch(changeModalState({
       status: true,
@@ -40,7 +48,7 @@ function Header() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography className="news" variant="h6" component="div" sx={{ flexGrow: 1 }} onClick={handleClick}>
             News
           </Typography>
           {isLoggedIn
@@ -56,5 +64,4 @@ function Header() {
     </Box>
   );
 }
-
 export default memo(Header);

@@ -1,0 +1,12 @@
+.main{
+  display: flex;
+  padding: 50px;
+  justify-content: space-around;
+}
+
+.post{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  padding: 20px;
+}

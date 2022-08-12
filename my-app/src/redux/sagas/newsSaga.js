@@ -1,7 +1,7 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 
-import * as actionTypes from '../constants';
 import api from '../../api/api';
+import * as actionTypes from '../constants';
 import { getNewsReceived, getNewsFailed } from '../actions';
 
 function* getPostSaga() {

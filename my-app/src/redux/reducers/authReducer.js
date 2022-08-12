@@ -7,6 +7,7 @@ const initState = {
   modalType: 'login',
   isLoggedIn: Boolean(localStorage.getItem('token')),
   authError: null,
+  userId: null,
 };
 
 const authReducer = (state = initState, action = {}) => {
@@ -23,6 +24,7 @@ const authReducer = (state = initState, action = {}) => {
         ...state,
         isModalOpen: false,
         isLoggedIn: true,
+        userId: action.payload,
       };
     case LOGOUT:
       return {

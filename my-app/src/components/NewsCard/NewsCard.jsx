@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
-import { arrayOf, string } from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+import { arrayOf, number, string } from 'prop-types';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -7,17 +8,22 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-import './NewsCard.css';
-
 function NewsCard({
   title,
   author,
   text,
   image,
   tag,
+  userId,
 }) {
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    navigate(`users/${userId}`, { replace: true });
+  };
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ minWidth: 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -25,7 +31,7 @@ function NewsCard({
           image={image}
         />
         <CardContent>
-          <Typography>
+          <Typography onClick={handleSubmit}>
             {author}
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
@@ -48,6 +54,7 @@ NewsCard.propTypes = {
   author: string.isRequired,
   text: string.isRequired,
   image: string,
+  userId: number.isRequired,
   tag: arrayOf(string).isRequired,
 };
 

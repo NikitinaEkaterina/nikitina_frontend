@@ -1,4 +1,4 @@
-import { takeEvery, put, call } from 'redux-saga/effects';
+import { takeLatest, put, call } from 'redux-saga/effects';
 
 import api from '../../api/api';
 import * as actionTypes from '../constants';
@@ -14,5 +14,5 @@ function* getPostSaga() {
 }
 
 export default function* watcherSaga() {
-  yield takeEvery(actionTypes.NEWS_REQUESTED, getPostSaga);
+  yield takeLatest(actionTypes.NEWS_REQUESTED, getPostSaga);
 }

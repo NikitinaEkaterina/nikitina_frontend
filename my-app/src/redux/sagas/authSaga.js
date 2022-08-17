@@ -1,4 +1,4 @@
-import { takeEvery, put, call } from 'redux-saga/effects';
+import { takeLatest, put, call } from 'redux-saga/effects';
 
 import api from '../../api/api';
 import * as actionTypes from '../constants';
@@ -15,5 +15,5 @@ function* registrationSaga({ payload }) {
 }
 
 export default function* recordSaga() {
-  yield takeEvery(actionTypes.REGISTRATION_REQUESTED, registrationSaga);
+  yield takeLatest(actionTypes.REGISTRATION_REQUESTED, registrationSaga);
 }

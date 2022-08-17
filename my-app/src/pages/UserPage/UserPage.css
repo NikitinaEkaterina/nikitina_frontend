@@ -1,4 +1,4 @@
-.userPosts{
+.userPosts {
   margin-top: 100px;
   display: flex;
   flex-wrap: wrap;
@@ -6,7 +6,7 @@
   padding: 20px;
 }
 
-.cardUser{
+.cardUser {
   display: flex;
   justify-content: space-around;
 }

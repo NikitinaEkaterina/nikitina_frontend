@@ -7,7 +7,7 @@ import userReducer from './userReducer';
 const rootReducer = combineReducers({
   news: newsReducer,
   auth: authReducer,
-  users: userReducer,
+  user: userReducer,
 });
 
 export default rootReducer;

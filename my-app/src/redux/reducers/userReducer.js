@@ -1,13 +1,17 @@
 import {
-  GET_USER_REQUESTED, GET_USER_SUCCESSED, GET_USER_FAILED, GET_USER_NEWS_REQUESTED,
-  GET_USER_NEWS_SUCCESSED, GET_USER_NEWS_FAILED,
+  GET_USER_REQUESTED,
+  GET_USER_SUCCESSED,
+  GET_USER_FAILED,
+  GET_USER_NEWS_REQUESTED,
+  GET_USER_NEWS_SUCCESSED,
+  GET_USER_NEWS_FAILED,
 } from '../constants';
 
 const initialState = {
-  userNews: [],
+  userNews: null,
   isLoading: false,
   error: null,
-  user: {},
+  user: null,
 };
 
 const userReducer = (state = initialState, action = {}) => {
@@ -15,7 +19,7 @@ const userReducer = (state = initialState, action = {}) => {
     case GET_USER_REQUESTED:
       return {
         ...state,
-        userNews: [],
+        user: null,
         error: null,
         isLoading: true,
       };
@@ -35,7 +39,7 @@ const userReducer = (state = initialState, action = {}) => {
     case GET_USER_NEWS_REQUESTED:
       return {
         ...state,
-        user: {},
+        userNews: null,
         isLoading: true,
       };
     case GET_USER_NEWS_SUCCESSED:

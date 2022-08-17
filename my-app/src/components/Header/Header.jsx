@@ -8,7 +8,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 
 import { changeModalState, logOut } from '../../redux/actions';
 
@@ -36,32 +35,32 @@ function Header() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography className="news" variant="h6" component="div" sx={{ flexGrow: 1 }} onClick={handleClick}>
-            News
-          </Typography>
-          {isLoggedIn
-            ? <Button color="inherit" onClick={handleLogOut}>LogOut</Button>
-            : (
-              <>
-                <Button color="inherit" onClick={() => openModal('signup')}>Sign Up</Button>
-                <Button color="inherit" onClick={() => openModal('login')}>Login</Button>
-              </>
-            )}
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <div className="boxStyle">
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar bgcolor="#9a1750">
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+            />
+            <Typography className="news" variant="h6" component="div" sx={{ flexGrow: 1 }} onClick={handleClick}>
+              News
+            </Typography>
+            {isLoggedIn
+              ? <Button color="inherit" onClick={handleLogOut}>LogOut</Button>
+              : (
+                <>
+                  <Button color="inherit" onClick={() => openModal('signup')}>Sign Up</Button>
+                  <Button color="inherit" onClick={() => openModal('login')}>Login</Button>
+                </>
+              )}
+          </Toolbar>
+        </AppBar>
+      </Box>
+    </div>
   );
 }
 export default memo(Header);

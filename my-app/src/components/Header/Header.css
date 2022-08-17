@@ -1,9 +1,7 @@
-.news{
+.news {
   cursor: pointer;
 }
 
-.css-hip9hq-MuiPaper-root-MuiAppBar-root{
-  background-color: #9a1750 !important;
-  text-shadow: 0 0 10px !important;
+.boxStyle {
+  background-color: #9a1750
 }
-

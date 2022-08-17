@@ -1,0 +1,12 @@
+.userPosts {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  padding: 20px;
+}
+
+.cardUser {
+  display: flex;
+  justify-content: space-around;
+}

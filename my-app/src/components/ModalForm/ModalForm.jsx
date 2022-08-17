@@ -6,8 +6,6 @@ import TextField from '@mui/material/TextField';
 
 import { registrationRequested, loginRequested } from '../../redux/actions';
 
-import './ModalForm.css';
-
 function ModalForm() {
   const error = useSelector((state) => state.auth.authError);
   const modalType = useSelector((state) => state.auth.modalType);

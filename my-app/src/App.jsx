@@ -1,5 +1,6 @@
+import React from 'react';
 import {
-  BrowserRouter, Routes, Route, React,
+  BrowserRouter, Routes, Route,
 } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 

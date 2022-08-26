@@ -35,7 +35,7 @@ function ModalForm() {
       </div>
       {isAuth
       && (
-      <>
+      <p>
         <p htmlFor="username">Your Name</p>
         <TextField
           required
@@ -47,7 +47,7 @@ function ModalForm() {
           error={formik.touched.username && Boolean(formik.errors.username)}
           helperText={formik.touched.username && formik.errors.username}
         />
-      </>
+      </p>
       )}
       <br />
       <p htmlFor="email">Your Email</p>
@@ -73,6 +73,7 @@ function ModalForm() {
         error={formik.touched.password && Boolean(formik.errors.password)}
         helperText={formik.touched.password && formik.errors.password}
       />
+      <br />
       <br />
       <button type="submit">Submit</button>
     </form>

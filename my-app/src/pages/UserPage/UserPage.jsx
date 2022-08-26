@@ -19,7 +19,6 @@ function UserPage() {
   const isLoading = useSelector((state) => state.user.isLoading);
   const error = useSelector((state) => state.user.error);
   const user = useSelector((state) => state.user.user);
-
   useEffect(() => {
     if (userId) {
       dispatch(getUserRequested(userId));

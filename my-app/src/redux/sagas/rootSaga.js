@@ -5,6 +5,7 @@ import newsSaga from './newsSaga';
 import loginSaga from './loginSaga';
 import userSaga from './userSaga';
 import userNewsSaga from './userNewsSaga';
+import addNewsSaga from './addNewsSaga';
 
 export default function* rootSaga() {
   yield all([
@@ -13,5 +14,6 @@ export default function* rootSaga() {
     loginSaga(),
     userSaga(),
     userNewsSaga(),
+    addNewsSaga(),
   ]);
 }

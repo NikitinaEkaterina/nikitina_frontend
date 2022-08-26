@@ -5,6 +5,7 @@ import {
   GET_USER_NEWS_REQUESTED,
   GET_USER_NEWS_SUCCESSED,
   GET_USER_NEWS_FAILED,
+  ADD_NEWS_SUCCESSED,
 } from '../constants';
 
 const initialState = {
@@ -53,6 +54,11 @@ const userReducer = (state = initialState, action = {}) => {
         ...state,
         error: action.error,
         isLoading: false,
+      };
+    case ADD_NEWS_SUCCESSED:
+      return {
+        ...state,
+        userNews: [...state.userNews, action.payload],
       };
     default:
       return state;

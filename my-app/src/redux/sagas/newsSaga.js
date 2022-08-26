@@ -12,7 +12,6 @@ function* getPostSaga() {
     yield put(getNewsFailed(error.message));
   }
 }
-
 export default function* watcherSaga() {
   yield takeLatest(actionTypes.NEWS_REQUESTED, getPostSaga);
 }

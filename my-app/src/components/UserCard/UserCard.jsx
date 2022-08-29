@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { string } from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -8,6 +8,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import CardActionArea from '@mui/material/CardActionArea';
+
+import { toggleAddNewsModal } from '../../redux/actions';
 
 function UserCard({
   image,
@@ -17,6 +19,11 @@ function UserCard({
   const userId = useSelector((state) => state.auth.userId);
   const authorId = useSelector((state) => state.user.user.id);
   const isMyPage = userId === authorId;
+  const dispatch = useDispatch();
+
+  const openModal = () => {
+    dispatch(toggleAddNewsModal(true));
+  };
 
   return (
     (
@@ -37,7 +44,7 @@ function UserCard({
             {isMyPage
            && (
            <>
-             <Button>Добавить новость</Button>
+             <Button onClick={openModal}>Добавить новость</Button>
              <Button>Редактировать профиль</Button>
            </>
            )}

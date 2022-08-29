@@ -37,10 +37,10 @@ function AuthModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography component="span" id="modal-modal-title" variant="h6">
             {isAuth ? 'SIGN UP' : 'LOGIN'}
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography component="span" id="modal-modal-description" sx={{ mt: 2 }}>
             <AuthForm />
           </Typography>
         </Box>

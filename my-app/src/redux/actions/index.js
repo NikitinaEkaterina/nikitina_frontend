@@ -68,3 +68,21 @@ export const getUserNewsFailed = (error) => ({
   type: actionTypes.GET_USER_NEWS_FAILED,
   error,
 });
+
+export const addNewsRequested = (payload) => ({
+  type: actionTypes.ADD_NEWS_REQUESTED,
+  payload,
+});
+export const addNewsSuccessed = (payload) => ({
+  type: actionTypes.ADD_NEWS_SUCCESSED,
+  payload,
+});
+export const addNewsFailed = (error) => ({
+  type: actionTypes.ADD_NEWS_FAILED,
+  error,
+});
+
+export const toggleAddNewsModal = (payload) => ({
+  type: actionTypes.TOGGLE_ADD_NEWS_MODAL,
+  payload,
+});

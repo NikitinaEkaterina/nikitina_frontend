@@ -12,8 +12,7 @@ function UserNews() {
   const dispatch = useDispatch();
 
   const onSubmit = (values) => {
-    const tagArray = values.tag.split();
-    dispatch(addNewsRequested(values, tagArray));
+    dispatch(addNewsRequested(values));
   };
 
   const formik = useFormik({

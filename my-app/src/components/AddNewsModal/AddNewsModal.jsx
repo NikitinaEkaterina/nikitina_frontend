@@ -25,18 +25,16 @@ function AddNewsModal() {
   const handleClose = () => dispatch(toggleAddNewsModal(false));
 
   return (
-    <div>
-      <Modal
-        open={isNewsModalOpen}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          {isNewsModalOpen && <UserNews />}
-        </Box>
-      </Modal>
-    </div>
+    <Modal
+      open={isNewsModalOpen}
+      onClose={handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box sx={style}>
+        <UserNews />
+      </Box>
+    </Modal>
   );
 }
 

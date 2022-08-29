@@ -41,7 +41,7 @@ const newsReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         error: null,
-        isloading: true,
+        isLoading: true,
       };
     case ADD_NEWS_SUCCESSED:
       return {

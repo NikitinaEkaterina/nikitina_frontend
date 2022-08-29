@@ -49,7 +49,6 @@ function ModalForm() {
         />
       </p>
       )}
-      <br />
       <p htmlFor="email">Your Email</p>
       <TextField
         required
